@@ -1,0 +1,32 @@
+name: check append
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: check append
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Release Version
+        run: |
+          curTag= "Hotfix-2023.1.1"
+          IFS="-" read -ra ADDR <<< "$curTag"
+          t1= "${ADDR[1]}"
+          echo "${t1}"
+          t2= 1
+          for ((i=0;i<5;i++))
+          do
+            newStr= "v${t1}.${t2}"
+            if [[ newStr == github.ref ]]
+              then
+                t2="$((t2+1))"
+              else
+                echo "$newStr"
+                break
+            fi
+          done
+          newVersion= $newStr
+          git tag "${newVersion}"
+          git push origin "${newVersion}"
+          echo "RELEASE_VERSION=${newVersion}" >> $GITHUB_ENV
