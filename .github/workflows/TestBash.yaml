@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Get Tag
+        run: git tag -l --sort=refname | tail -1
           
       - name: Create Release Version
         run: |
