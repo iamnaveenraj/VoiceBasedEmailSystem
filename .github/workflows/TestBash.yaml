@@ -11,7 +11,7 @@ jobs:
         
       - name: Get Tag
         run: |
-          x=git tag -l --sort=refname | tail -1
+          x=$(git tag -l --sort=refname | tail -1)
           echo "$x"
           
       - name: Create Release Version
