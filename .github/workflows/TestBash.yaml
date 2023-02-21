@@ -11,5 +11,4 @@ jobs:
           
       - name: Create Release Version
         run: |
-          c="$git tag -l"
-          echo "$c"
+          echo "${git tag}"
