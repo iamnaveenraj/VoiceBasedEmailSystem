@@ -17,7 +17,7 @@ jobs:
           t2=1
           for ((i=0;i<5;i++))
           do
-            newStr="v${t1}.${t2}"
+            newStr="${t1}.${t2}"
             if [[ newStr == github.ref ]]
               then
                 t2="$((t2+1))"
