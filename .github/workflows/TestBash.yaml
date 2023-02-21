@@ -8,6 +8,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Generate Tag
+        run: |
+          ct =$(git tag --sort=committerdate | tail -1)
+          echo "$ct"
+          
       - name: Create Release Version
         run: |
           curTag="Hotfix-2023.1.1"
@@ -20,7 +26,7 @@ jobs:
             newStr="${t1}.${t2}"
             c="$github.ref"
             echo "${c}"
-            if [[ newStr == github.ref ]]
+            if [[ $(git tag -l "$newStr" ]]
               then
                 t2="$((t2+1))"
               else
@@ -32,7 +38,3 @@ jobs:
           git tag "${newVersion}"
           git push origin "${newVersion}"
           echo "RELEASE_VERSION=${newVersion}" >> $GITHUB_ENV
-      - name: Generate Tag
-        run: |
-          ct =$(git tag --sort=committerdate | tail -1)
-          echo "$ct"
