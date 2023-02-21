@@ -8,11 +8,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Generate Tag
-        run: |
-          ct ="$(git tag --sort=committerdate | tail -1)"
-          echo "$ct"
           
       - name: Create Release Version
         run: |
