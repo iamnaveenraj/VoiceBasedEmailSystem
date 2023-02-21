@@ -19,8 +19,10 @@ jobs:
           for ((i=0;i<5;i++))
           do
             newStr="${t1}.${t2}"
+            echo "abcd"
             if [ $(git tag -l "$newStr") ];
               then
+                echo "xyz"
                 t2="$((t2+1))"
               else
                 echo "$newStr"
