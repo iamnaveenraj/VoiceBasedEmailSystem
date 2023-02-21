@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Create Release Version
         run: |
-          curTag= "Hotfix-2023.1.1"
+          curTag="Hotfix-2023.1.1"
           IFS="-" read -ra ADDR <<< "$curTag"
           t1= "${ADDR[1]}"
           echo "${t1}"
