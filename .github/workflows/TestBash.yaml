@@ -19,7 +19,7 @@ jobs:
           for ((i=0;i<5;i++))
           do
             newStr="${t1}.${t2}"
-            if [ $(git tag -l "$newStr" ];
+            if [ $(git tag -l "$newStr" ]
               then
                 t2="$((t2+1))"
               else
