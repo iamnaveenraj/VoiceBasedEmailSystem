@@ -9,10 +9,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Get Tag
-        run: |
-          x=$(git tag -l --sort=refname | tail -1)
-          echo "$x"
+#       - name: Get Tag
+#         run: |
+#           x=$(git tag -l --sort=refname | tail -1)
+#           echo "$x"
           
       - name: Create Release Version
         run: |
