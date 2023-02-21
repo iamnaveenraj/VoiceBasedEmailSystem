@@ -25,7 +25,7 @@ jobs:
           do
             newStr="${t1}.${t2}"
             echo "abcd"
-            if [[ $git tag -l --sort=refname "2023.1.1.*" | tail -1 == "$newStr" ]]
+            if [[ $git tag -l --sort=refname "2023.1.1.*" | tail -1 == "$newStr" ]];
               then
                 echo "xyz"
                 t2="$((t2+1))"
