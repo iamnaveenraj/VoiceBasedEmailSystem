@@ -18,7 +18,8 @@ jobs:
           for ((i=0;i<5;i++))
           do
             newStr="${t1}.${t2}"
-            echo "${github.ref}"
+            c="$github.ref"
+            echo "${c}"
             if [[ newStr == github.ref ]]
               then
                 t2="$((t2+1))"
