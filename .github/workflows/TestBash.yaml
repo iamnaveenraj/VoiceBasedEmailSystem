@@ -15,7 +15,7 @@ jobs:
           IFS="-" read -ra ADDR <<< "$curTag"
           t1="${ADDR[1]}"
           echo "${t1}"
-          t2=1
+          t2=2
           for ((i=0;i<5;i++))
           do
             newStr="${t1}.${t2}"
