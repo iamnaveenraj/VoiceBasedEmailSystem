@@ -1,6 +1,9 @@
 name: check append
 on:
   workflow_dispatch:
+    inputs:
+      File_Name:
+        description: "Enter the value"
 jobs:
   build:
     name: check append
